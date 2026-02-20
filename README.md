@@ -1,5 +1,5 @@
 # 🚀 GitHub Actions Learning Repository
-# Just a test push to trigger GitHub Actions
+# Test push to trigger GitHub Actions workflow
 Welcome to your hands-on learning journey with **GitHub Actions**! This repository is designed for beginners and intermediate developers who want to master CI/CD automation.
 
 <p align="center">
