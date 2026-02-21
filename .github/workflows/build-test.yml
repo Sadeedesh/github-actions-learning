@@ -2,7 +2,10 @@ name: Build and Test
 
 on:
   push:
-    branches: [main, working-intermediate-sadeedesh,develop]
+    branches:
+      - main
+      - working-intermediate-sadeedesh
+      - develop
     paths:
       - 'sample-app/**'
       - '.github/workflows/build-test.yml'
