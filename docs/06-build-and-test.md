@@ -13,7 +13,7 @@ name: Node.js Build and Test
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, working-intermediate-sadeedesh]
   pull_request:
     branches: [main]
 
@@ -21,9 +21,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
       
@@ -41,13 +41,13 @@ jobs:
 Always start with checkout:
 
 ```yaml
-- uses: actions/checkout@v3
+- uses: actions/checkout@v4
 ```
 
 Options:
 
 ```yaml
-- uses: actions/checkout@v3
+- uses: actions/checkout@v4
   with:
     fetch-depth: 0           # Full history
     ref: main               # Specific branch
@@ -59,7 +59,7 @@ Options:
 Setup the right runtime:
 
 ```yaml
-- uses: actions/setup-node@v3
+- uses: actions/setup-node@v4
   with:
     node-version: '18'
 
@@ -110,7 +110,7 @@ Your `package.json`:
 Speed up workflows by caching:
 
 ```yaml
-- uses: actions/setup-node@v3
+- uses: actions/setup-node@v4
   with:
     node-version: '18'
     cache: 'npm'      # Caches node_modules
@@ -139,9 +139,9 @@ jobs:
       matrix:
         node-version: [14, 16, 18, 19]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
@@ -159,7 +159,7 @@ jobs:
   run: npm run build
 
 - name: Upload build artifact
-  uses: actions/upload-artifact@v3
+  uses: actions/upload-artifact@v4
   with:
     name: build-output
     path: dist/
@@ -193,7 +193,7 @@ name: Build, Test, and Report
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, working-intermediate-sadeedesh]
   pull_request:
     branches: [main]
 
@@ -207,7 +207,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -229,7 +229,7 @@ jobs:
         run: npm test -- --coverage
       
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-results-${{ matrix.node-version }}
