@@ -53,10 +53,10 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -94,9 +94,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -106,7 +106,7 @@ jobs:
       - run: npm run build
       
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: app-build
           path: dist/
@@ -117,10 +117,10 @@ jobs:
     environment: production
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: app-build
           path: dist/
@@ -242,7 +242,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Build application
         run: |
@@ -290,9 +290,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -308,9 +308,9 @@ jobs:
     environment: staging
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -334,9 +334,9 @@ jobs:
     environment: production
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
